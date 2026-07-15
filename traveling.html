@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Traveling — Shaurya Sharma</title>
+  <meta name="description" content="Everywhere Shaurya Sharma has been — a spinnable globe of the countries and US states he's visited." />
+  <meta name="theme-color" content="#1f2229" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css?v=14" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f2229'/%3E%3Ctext x='15' y='23' font-family='Georgia,serif' font-size='19' font-weight='700' fill='white' text-anchor='middle'%3ES%3C/text%3E%3Ccircle cx='25' cy='8' r='3' fill='%23f5402c'/%3E%3C/svg%3E" />
+  <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="index.html" aria-label="Shaurya Sharma — Home"><span class="brand__mark">S<span class="star">.</span></span> Shaurya Sharma</a>
+        <ul class="nav__links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Stuff I've Built</a></li>
+          <li><a href="interests.html" class="is-active">Interests</a></li><li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Me</a></li>
+        </ul>
+        <div class="nav__right">
+          <a class="btn btn--coral" href="index.html#connect">Say hi <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <button class="nav__toggle" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h16M4 16h16" stroke-linecap="round"/></svg></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="pagehero">
+      <div class="container">
+        <div class="crumb reveal"><a href="index.html">Home</a> / <a href="interests.html">Interests</a> / Traveling</div>
+        <span class="label label--coral reveal">Interest</span>
+        <h1 class="reveal" data-d="1">Traveling.</h1>
+        <p class="reveal" data-d="2">One of my favorite things is going places. Here's a spinnable globe of everywhere I've been so far — grab it and give it a spin. <em>(More pins every time I travel.)</em></p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:clamp(16px,2vw,28px)">
+      <div class="container">
+        <div class="travel-grid">
+          <div class="reveal">
+            <div class="globe-stage">
+              <canvas id="globe" role="img" aria-label="Interactive globe highlighting the countries Shaurya has visited"></canvas>
+            </div>
+            <p class="globe-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 1 0 9 9M3 12a9 9 0 0 0 9 9M12 3v18M3 12h18" stroke-linecap="round"/></svg> Drag to spin the globe</p>
+          </div>
+          <div class="reveal" data-d="1">
+            <span class="label label--coral">Passport so far</span>
+            <h2 style="font-size:clamp(1.7rem,3.4vw,2.6rem);margin:14px 0 18px;max-width:16ch">18 stamps and counting.</h2>
+            <p style="color:var(--ink-soft);max-width:46ch">Countries are filled in blue on the globe; the little red pins are islands and city-states too small to color at this zoom. Here's the full list:</p>
+            <div class="place-list">
+              <span class="place">Spain</span>
+              <span class="place">Canada</span>
+              <span class="place">France</span>
+              <span class="place">Switzerland</span>
+              <span class="place">Vietnam</span>
+              <span class="place">China</span>
+              <span class="place">India</span>
+              <span class="place">Mexico</span>
+              <span class="place">England</span>
+              <span class="place">Italy</span>
+              <span class="place">Japan</span>
+              <span class="place">Australia</span>
+              <span class="place">Turkey</span>
+              <span class="place place--island">Hawaii</span>
+              <span class="place place--island">Bora Bora</span>
+              <span class="place place--island">Tahiti</span>
+              <span class="place place--island">Singapore</span>
+              <span class="place place--island">Hong Kong</span>
+            </div>
+            <div class="legend">
+              <span><i style="background:#2f6bff"></i> Countries</span>
+              <span><i style="background:#f5402c"></i> Islands &amp; city-states</span>
+            </div>
+          </div>
+        </div>
+        <p id="globe-fallback" hidden style="margin-top:24px;color:var(--muted);font-family:var(--f-mono);font-size:.8rem">Couldn't load the interactive globe (need an internet connection) — but the full list of places is right above.</p>
+      </div>
+    </section>
+
+    <!-- US STATES -->
+    <section class="section" style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-head__title">
+            <span class="label label--coral">Closer to home</span>
+            <h2>US states I've made it to.</h2>
+          </div>
+          <p>Highlighted in blue. Plenty more of the map still to fill in. <em>Add states as you visit them.</em></p>
+        </div>
+        <div class="reveal">
+          <svg id="usmap" viewBox="0 0 975 610" role="img" aria-label="Map of the United States with visited states highlighted"></svg>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="connect">
+    <div class="container">
+      <div class="footer__cta reveal">
+        <span class="label">Come say hi</span>
+        <h2><a href="mailto:shaurya8sharma@gmail.com">Let's be<br>internet friends.</a></h2>
+        <a class="btn btn--onDark btn--lg" href="mailto:shaurya8sharma@gmail.com">shaurya8sharma@gmail.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand" href="index.html" style="color:#fff"><span class="brand__mark">S<span class="star">.</span></span> Shaurya Sharma</a>
+          <p>A young builder's corner of the internet. Come for the projects, stay for the hot takes.</p>
+        </div>
+        <div><h4>Look around</h4><ul><li><a href="index.html">Home</a></li><li><a href="work.html">Stuff I've Built</a></li><li><a href="interests.html">Interests</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="about.html">About Me</a></li></ul></div>
+        <div><h4>Find me online</h4><ul><li><a href="https://github.com/shaurya8sharma-bot" target="_blank" rel="noopener">GitHub ↗</a></li><li><a href="https://buymeacoffee.com/shauryasharma" target="_blank" rel="noopener">Buy me a coffee ↗</a></li><li><a href="#" target="_blank" rel="noopener">YouTube ↗ <span style="opacity:.5">(add link)</span></a></li><li><a href="mailto:shaurya8sharma@gmail.com">Email ↗</a></li></ul></div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span id="year">2026</span> Shaurya Sharma</span>
+        <span>Built by Shaurya · placeholder pics &amp; copy, swap before sharing</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+  <script src="assets/script.js?v=14"></script>
+  <script src="assets/travel.js?v=14"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "portfolio", "runtimeExecutable": "bash", "runtimeArgs": ["-c", "cd \"/Users/sunitas/Maker Portfolio\" && python3 -m http.server \"$PORT\" --bind 0.0.0.0"], "autoPort": true }
+  ]
+}
